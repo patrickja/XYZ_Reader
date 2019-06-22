@@ -28,7 +28,6 @@ import android.widget.FrameLayout;
 
 import com.example.xyzreader.R;
 
-
 public class DrawInsetsFrameLayout extends FrameLayout {
     private Drawable mInsetBackground;
     private Drawable mTopInsetBackground;
@@ -55,8 +54,8 @@ public class DrawInsetsFrameLayout extends FrameLayout {
     }
 
     private void init(Context context, AttributeSet attrs, int defStyle) {
-        final TypedArray a = context.obtainStyledAttributes(attrs,
-                R.styleable.DrawInsetsFrameLayout, defStyle, 0);
+        final TypedArray a =
+                context.obtainStyledAttributes(attrs, R.styleable.DrawInsetsFrameLayout, defStyle, 0);
         assert a != null;
 
         mInsetBackground = a.getDrawable(R.styleable.DrawInsetsFrameLayout_insetBackground);
@@ -103,11 +102,12 @@ public class DrawInsetsFrameLayout extends FrameLayout {
     @Override
     public WindowInsets onApplyWindowInsets(WindowInsets insets) {
         insets = super.onApplyWindowInsets(insets);
-        mInsets = new Rect(
-                insets.getSystemWindowInsetLeft(),
-                insets.getSystemWindowInsetTop(),
-                insets.getSystemWindowInsetRight(),
-                insets.getSystemWindowInsetBottom());
+        mInsets =
+                new Rect(
+                        insets.getSystemWindowInsetLeft(),
+                        insets.getSystemWindowInsetTop(),
+                        insets.getSystemWindowInsetRight(),
+                        insets.getSystemWindowInsetBottom());
         setWillNotDraw(false);
         postInvalidateOnAnimation();
         if (mOnInsetsCallback != null) {
@@ -153,7 +153,7 @@ public class DrawInsetsFrameLayout extends FrameLayout {
         }
     }
 
-    public static interface OnInsetsCallback {
-        public void onInsetsChanged(Rect insets);
+    public interface OnInsetsCallback {
+        void onInsetsChanged(Rect insets);
     }
 }

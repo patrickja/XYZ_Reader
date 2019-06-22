@@ -9,4 +9,8 @@
 
     <string name="up">Up</string>
 
+    <string name="transition_image">transition_image</string>
+    <string name="empty_recycler_view_no_network">The network is not available. Please check the internet connection.</string>
+    <string name="no_information_available">No information available.</string>
+
 </resources>

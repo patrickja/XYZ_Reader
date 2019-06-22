@@ -13,16 +13,16 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
-public class RemoteEndpointUtil {
-    private static final String TAG = "RemoteEndpointUtil";
+public class RemoteEndpoint {
+    private static final String TAG = "RemoteEndpoint";
 
-    private RemoteEndpointUtil() {
+    private RemoteEndpoint() {
     }
 
     public static JSONArray fetchJsonArray() {
         String itemsJson = null;
         try {
-            itemsJson = fetchPlainText(Config.BASE_URL);
+            itemsJson = fetchPlainText(EndpointConfiguration.BASE_URL);
         } catch (IOException e) {
             Log.e(TAG, "Error fetching items JSON", e);
             return null;
@@ -46,9 +46,7 @@ public class RemoteEndpointUtil {
     static String fetchPlainText(URL url) throws IOException {
         OkHttpClient client = new OkHttpClient();
 
-        Request request = new Request.Builder()
-                .url(url)
-                .build();
+        Request request = new Request.Builder().url(url).build();
 
         Response response = client.newCall(request).execute();
         return response.body().string();
