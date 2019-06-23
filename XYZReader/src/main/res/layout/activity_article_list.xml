@@ -21,8 +21,7 @@
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/bar_height"
-                android:background="@color/theme_primary">
+                android:layout_height="@dimen/bar_height">
 
                 <ImageView
                     android:layout_width="wrap_content"
